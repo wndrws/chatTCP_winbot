@@ -242,6 +242,7 @@ bool ChatServer::receiveLogoutNotification() {
         }
         id = atoi(id_buf);
         m_Users.erase(id);
+        m_Pending.erase(id);
     }
 
     auto it2 = m_Users.find(getCurrentPeer());
