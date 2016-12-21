@@ -35,10 +35,10 @@ unordered_map<int, vector<string>>& ChatServer::getPendingMap() {
 
 int ChatServer::login(string username) {
     // username.size() is guaranteed to be less than 33
-    string msg = username;
-    uint16_t len = (uint16_t) htons((u_short) username.size());
+    string msg = username + "\n";
+    //uint16_t len = (uint16_t) htons((u_short) username.size());
     msg.insert(0, 1, (char) CODE_LOGINREQUEST);
-    msg.insert(1, (char*) &len, 2);
+    //msg.insert(1, (char*) &len, 2);
 
     int r = send(m_Socket, msg.c_str(), (int) msg.size(), 0);
     if(r == SOCKET_ERROR) {

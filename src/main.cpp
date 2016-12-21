@@ -21,6 +21,11 @@ int main(int argc, char** argv) {
     //struct sockaddr_in peer;
     SOCKET s;
 
+    if(argc < 3) {
+        cout << "Please provide IP address and Port of the server." << endl;
+        return 1;
+    }
+
     INIT();
 
     s = tcp_client(argv[1], argv[2]);
